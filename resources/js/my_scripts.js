@@ -82,14 +82,21 @@ function loadStatsPage() {
 	var table = document.getElementById("stats_table");
 	var rowCount;
 	var colCount;
+	var wins = 0;
+	var losses = 0;
 
 	for(rowCount = 2; rowCount < table.rows.length; rowCount++) {
 		if (parseInt(table.rows[rowCount].cells[3].innerHTML) > parseInt(table.rows[rowCount].cells[2].innerHTML)) {
 			table.rows[rowCount].cells[4].innerHTML = table.rows[rowCount].cells[1].innerHTML;
+			losses++;
 		} else {
 			table.rows[rowCount].cells[4].innerHTML = "Colorado";
+			wins++;
 		}
 	}
+
+	document.getElementById("wins").innerHTML = wins;
+	document.getElementById("losses").innerHTML = losses;
 }
 
 /*
